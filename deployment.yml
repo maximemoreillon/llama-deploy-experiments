@@ -1,0 +1,26 @@
+# This file describes a deployment, which contains:
+# - multiple workflows
+# - a control plane
+# - a message queue
+
+name: QuickStart
+
+control-plane:
+  port: 8000
+
+default-service: test_workflow
+
+services:
+  test_workflow:
+    name: Test Workflow
+    source:
+      type: local
+      name: ./src
+    path: testWorkflow:testWorkflow
+
+  agent_workflow:
+    name: Agent Workflow
+    source:
+      type: local
+      name: ./src
+    path: agentWorkflow:agentWorkflow
