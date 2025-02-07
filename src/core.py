@@ -1,0 +1,17 @@
+# From https://www.llamaindex.ai/blog/introducing-llama-deploy-a-microservice-based-way-to-deploy-llamaindex-workflows
+from llama_deploy import (
+    deploy_core,
+    ControlPlaneConfig,
+    SimpleMessageQueueConfig,
+)
+
+async def main():
+		# Deploy the workflow as a service
+		await deploy_core(
+		    control_plane_config=ControlPlaneConfig(),
+		    message_queue_config=SimpleMessageQueueConfig(),
+		)
+
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
